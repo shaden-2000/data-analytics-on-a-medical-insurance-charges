@@ -1,4 +1,4 @@
-#the picture
+
 '''
 Setup
 For this lab, we will be using the following libraries:
@@ -71,8 +71,9 @@ print(df.info())
 df[["charges"]] = np.round(df[["charges"]],2)
 
 
-#Exploratory Data Analysis (EDA) + picture
+#Exploratory Data Analysis (EDA)
 Implement the regression plot for charges with respect to bmi.
 sns.regplot(x="bmi", y="charges", data=df, line_kws={"color": "red"})
-#Implement the box plot for charges with respect to smoker. + picture
+
+#Implement the box plot for charges with respect to smoker.
 sns.boxplot(x="smoker", y="charges", data=df)
