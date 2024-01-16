@@ -27,23 +27,23 @@ from sklearn.model_selection import cross_val_score, train_test_split
 filepath = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DA0101EN-Coursera/medical_insurance_dataset.csv'
 df = pd.read_csv(filepath, header=None)
 
-#Task 1 : Import the dataset
+# Task 1 : Import the dataset
 '''Import the dataset into a pandas dataframe. Note that there are currently no headers in the CSV file.
 Print the first 10 rows of the dataframe to confirm successful loading.'''
 
 df = pd.read_csv(filepath, header=None)
 print(df.head(10))
 
-#Add the headers to the dataframe, as mentioned in the project scenario.
+#A dd the headers to the dataframe, as mentioned in the project scenario.
 
 headers = ["age", "gender", "bmi", "no_of_children", "smoker", "region", "charges"]
 df.columns = headers
 
-#Now, replace the '?' entries with 'NaN' values.
+# Now, replace the '?' entries with 'NaN' values.
 df.replace('?', np.nan, inplace = True)
 
 
-#Task 2 : Data Wrangling
+# Task 2 : Data Wrangling
 #Use `dataframe.info()` to identify the columns that have some 'Null' (or NaN) information.
 print(df.info())
 
@@ -67,13 +67,12 @@ df[["age","smoker"]] = df[["age","smoker"]].astype("int")
 
 print(df.info())
 
-#Update the charges column such that all values are rounded to nearest 2 decimal places
+# Update the charges column such that all values are rounded to nearest 2 decimal places
 df[["charges"]] = np.round(df[["charges"]],2)
 
 
-#Exploratory Data Analysis (EDA)
-Implement the regression plot for charges with respect to bmi.
+# Implement the regression plot for charges with respect to bmi.
 sns.regplot(x="bmi", y="charges", data=df, line_kws={"color": "red"})
 
-#Implement the box plot for charges with respect to smoker.
+# Implement the box plot for charges with respect to smoker.
 sns.boxplot(x="smoker", y="charges", data=df)
